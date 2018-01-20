@@ -32,10 +32,26 @@
                     <view key="view" contentMode="scaleToFill" id="CXe-au-D18">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mpb-RS-wXQ">
+                                <rect key="frame" x="67" y="40" width="240" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="4Wq-1A-UGn"/>
+                                    <constraint firstAttribute="height" constant="150" id="bIz-a1-SDt"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Mpb-RS-wXQ" firstAttribute="centerX" secondItem="bsL-NR-Kce" secondAttribute="centerX" id="JAF-u9-vuQ"/>
+                            <constraint firstItem="Mpb-RS-wXQ" firstAttribute="top" secondItem="bsL-NR-Kce" secondAttribute="top" constant="20" id="ls9-Ro-NNn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bsL-NR-Kce"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="iDp-Xs-cnd"/>
+                    <connections>
+                        <outlet property="imageView" destination="Mpb-RS-wXQ" id="IOO-Wg-b3w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6K7-u0-V5i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,4 +76,7 @@
             <point key="canvasLocation" x="-1481" y="-146"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="image.png" width="480" height="300"/>
+    </resources>
 </document>
