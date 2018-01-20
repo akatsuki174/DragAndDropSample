@@ -28,7 +28,7 @@
         <!--Item 1-->
         <scene sceneID="F3X-q7-6oM">
             <objects>
-                <viewController id="2VR-M5-gdk" customClass="TapGestureViewController" customModule="SingleAppDragAndDrop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2VR-M5-gdk" customClass="PanGestureViewController" customModule="SingleAppDragAndDrop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CXe-au-D18">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
