@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E30D2ED82007AFBB00CA3F62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30D2ED72007AFBB00CA3F62 /* AppDelegate.swift */; };
-		E30D2EDA2007AFBB00CA3F62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30D2ED92007AFBB00CA3F62 /* ViewController.swift */; };
+		E30D2EDA2007AFBB00CA3F62 /* TapGestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30D2ED92007AFBB00CA3F62 /* TapGestureViewController.swift */; };
 		E30D2EDD2007AFBB00CA3F62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E30D2EDB2007AFBB00CA3F62 /* Main.storyboard */; };
 		E30D2EDF2007AFBB00CA3F62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E30D2EDE2007AFBB00CA3F62 /* Assets.xcassets */; };
 		E30D2EE22007AFBB00CA3F62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E30D2EE02007AFBB00CA3F62 /* LaunchScreen.storyboard */; };
@@ -17,7 +17,7 @@
 /* Begin PBXFileReference section */
 		E30D2ED42007AFBB00CA3F62 /* SingleAppDragAndDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SingleAppDragAndDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E30D2ED72007AFBB00CA3F62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E30D2ED92007AFBB00CA3F62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E30D2ED92007AFBB00CA3F62 /* TapGestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapGestureViewController.swift; sourceTree = "<group>"; };
 		E30D2EDC2007AFBB00CA3F62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E30D2EDE2007AFBB00CA3F62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E30D2EE12007AFBB00CA3F62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				E30D2ED72007AFBB00CA3F62 /* AppDelegate.swift */,
-				E30D2ED92007AFBB00CA3F62 /* ViewController.swift */,
+				E30D2ED92007AFBB00CA3F62 /* TapGestureViewController.swift */,
 				E30D2EDB2007AFBB00CA3F62 /* Main.storyboard */,
 				E30D2EDE2007AFBB00CA3F62 /* Assets.xcassets */,
 				E30D2EE02007AFBB00CA3F62 /* LaunchScreen.storyboard */,
@@ -136,7 +136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E30D2EDA2007AFBB00CA3F62 /* ViewController.swift in Sources */,
+				E30D2EDA2007AFBB00CA3F62 /* TapGestureViewController.swift in Sources */,
 				E30D2ED82007AFBB00CA3F62 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
