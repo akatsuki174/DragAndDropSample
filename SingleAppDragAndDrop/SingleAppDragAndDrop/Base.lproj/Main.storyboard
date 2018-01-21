@@ -12,12 +12,12 @@
         <!--Item 2-->
         <scene sceneID="Qzu-wl-Ixi">
             <objects>
-                <viewController id="OBI-4k-HJt" customClass="NSItemProviderViewController" sceneMemberID="viewController">
+                <viewController id="OBI-4k-HJt" customClass="NSItemProviderViewController" customModule="SingleAppDragAndDrop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FDB-eF-jVr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image.png" translatesAutoresizingMaskIntoConstraints="NO" id="fln-to-jrh">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image.png" translatesAutoresizingMaskIntoConstraints="NO" id="fln-to-jrh">
                                 <rect key="frame" x="67" y="244" width="240" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="INk-O7-Usq"/>
@@ -33,6 +33,9 @@
                         <viewLayoutGuide key="safeArea" id="1Nx-Vp-YUt"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="zsc-b1-w87"/>
+                    <connections>
+                        <outlet property="imageView" destination="fln-to-jrh" id="Lzm-6v-WZm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MtQ-7a-S0I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
