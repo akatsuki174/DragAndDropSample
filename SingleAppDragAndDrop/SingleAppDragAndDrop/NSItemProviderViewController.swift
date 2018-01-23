@@ -46,8 +46,6 @@ extension NSItemProviderViewController: UIDropInteractionDelegate {
         if session.canLoadObjects(ofClass: UIImage.self) {
             if dropImageView.frame.contains(location) {
                 dropOperation = .copy
-            } else if dropImageView.frame.contains(location) {
-                dropOperation = .forbidden
             } else {
                 dropOperation = .cancel
             }
