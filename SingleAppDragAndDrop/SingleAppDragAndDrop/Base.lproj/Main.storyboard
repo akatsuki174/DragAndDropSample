@@ -18,22 +18,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image.png" translatesAutoresizingMaskIntoConstraints="NO" id="fln-to-jrh">
-                                <rect key="frame" x="67" y="244" width="240" height="150"/>
+                                <rect key="frame" x="67" y="120" width="240" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="INk-O7-Usq"/>
                                     <constraint firstAttribute="width" constant="240" id="jRz-ga-51V"/>
                                 </constraints>
                             </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G7E-TG-P2j">
+                                <rect key="frame" x="67" y="368" width="240" height="150"/>
+                                <color key="backgroundColor" red="1" green="0.9948742652" blue="0.79600128309999996" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="AUd-vw-Dec"/>
+                                    <constraint firstAttribute="width" constant="240" id="apG-EJ-cHr"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fln-to-jrh" firstAttribute="centerY" secondItem="1Nx-Vp-YUt" secondAttribute="centerY" id="IpH-wo-V0T"/>
                             <constraint firstItem="fln-to-jrh" firstAttribute="centerX" secondItem="1Nx-Vp-YUt" secondAttribute="centerX" id="P5g-nZ-GLJ"/>
+                            <constraint firstItem="fln-to-jrh" firstAttribute="top" secondItem="1Nx-Vp-YUt" secondAttribute="top" constant="100" id="XB7-QY-NWR"/>
+                            <constraint firstItem="G7E-TG-P2j" firstAttribute="centerX" secondItem="1Nx-Vp-YUt" secondAttribute="centerX" id="ZzP-73-bai"/>
+                            <constraint firstItem="1Nx-Vp-YUt" firstAttribute="bottom" secondItem="G7E-TG-P2j" secondAttribute="bottom" constant="100" id="zIW-aZ-GuF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Nx-Vp-YUt"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="zsc-b1-w87"/>
                     <connections>
+                        <outlet property="dropImageView" destination="G7E-TG-P2j" id="LXI-DM-P3J"/>
                         <outlet property="imageView" destination="fln-to-jrh" id="Lzm-6v-WZm"/>
                     </connections>
                 </viewController>
