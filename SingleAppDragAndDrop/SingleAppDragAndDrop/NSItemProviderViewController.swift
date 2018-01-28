@@ -1,4 +1,5 @@
 import UIKit
+import AVFoundation
 
 class NSItemProviderViewController: UIViewController {
 
@@ -34,6 +35,26 @@ extension NSItemProviderViewController: UIDragInteractionDelegate {
 
         let itemProvider = NSItemProvider(object: image)
         return [UIDragItem(itemProvider: itemProvider)]
+    }
+
+    // リフト中のプレビューをカスタマイズする
+    // UITargetedDragPreviewはプレビューを表すクラスで、任意のUIViewオブジェクトを指定できる
+    // デフォルトのプレビューはUIDragInteractionを追加した対象のview全体になる
+    func dragInteraction(_ interaction: UIDragInteraction, previewForLifting item: UIDragItem, session: UIDragSession) -> UITargetedDragPreview? {
+        guard let imageView = interaction.view as? UIImageView,
+            let image = imageView.image else {
+                return nil
+        }
+        let preview = UIImageView(image: image)
+        // アスペクト比を保ったまま任意のCGRectに収める
+        preview.frame.size = AVMakeRect(aspectRatio: image.size, insideRect: imageView.bounds).size
+
+        // 背景色、プレビューの形状を設定
+        let parameters = UIDragPreviewParameters()
+        let center = imageView.convert(imageView.center, from: imageView.superview)
+        // プレビューの表示位置を指定
+        let target = UIDragPreviewTarget(container: imageView, center: center)
+        return UITargetedDragPreview(view: preview, parameters: parameters, target: target)
     }
 }
 
