@@ -2,13 +2,18 @@ import UIKit
 
 class NSItemProviderViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var dragableImageView1: UIImageView!
+    @IBOutlet weak var dragableImageView2: UIImageView!
+
     @IBOutlet weak var dropImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        imageView.addInteraction(UIDragInteraction(delegate: self))
+        // ドラッグに対応させるためにUIDragInteractionを追加
+        dragableImageView1.addInteraction(UIDragInteraction(delegate: self))
+        dragableImageView2.addInteraction(UIDragInteraction(delegate: self))
+        // ドラッグに対応させるためにUIDropInteractionsを追加
         dropImageView.addInteraction(UIDropInteraction(delegate: self))
     }
 
@@ -19,8 +24,9 @@ class NSItemProviderViewController: UIViewController {
 }
 extension NSItemProviderViewController: UIDragInteractionDelegate {
 
+    // ドラッグ開始時に呼ばれる
     func dragInteraction(_ interaction: UIDragInteraction, itemsForBeginning session: UIDragSession) -> [UIDragItem] {
-        guard let image = imageView.image else {
+        guard let image = dragableImageView1.image else {
             return []
         }
 
