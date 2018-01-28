@@ -26,7 +26,9 @@ extension NSItemProviderViewController: UIDragInteractionDelegate {
 
     // ドラッグ開始時に呼ばれる
     func dragInteraction(_ interaction: UIDragInteraction, itemsForBeginning session: UIDragSession) -> [UIDragItem] {
-        guard let image = dragableImageView1.image else {
+        // ドラッグできるデータがなければ空配列を返す
+        guard let imageView = interaction.view as? UIImageView,
+            let image = imageView.image else {
             return []
         }
 
