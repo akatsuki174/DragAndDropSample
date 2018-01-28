@@ -56,6 +56,19 @@ extension NSItemProviderViewController: UIDragInteractionDelegate {
         let target = UIDragPreviewTarget(container: imageView, center: center)
         return UITargetedDragPreview(view: preview, parameters: parameters, target: target)
     }
+
+    // ドラッグがキャンセルされた時のプレビューをカスタマイズする
+    // defaultPreviewにリフト時のプレビューが入っている
+    // プレビュー時のアニメーションはiOSによって管理されている
+    func dragInteraction(_ interaction: UIDragInteraction, previewForCancelling item: UIDragItem, withDefault defaultPreview: UITargetedDragPreview) -> UITargetedDragPreview? {
+        guard let imageView = interaction.view as? UIImageView else {
+                return nil
+        }
+
+        let center = imageView.convert(imageView.center, from: imageView.superview)
+        let target = UIDragPreviewTarget(container: imageView, center: center)
+        return defaultPreview.retargetedPreview(with: target)
+    }
 }
 
 extension NSItemProviderViewController: UIDropInteractionDelegate {
