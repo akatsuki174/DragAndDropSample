@@ -13,7 +13,7 @@ class NSItemProviderViewController: UIViewController {
         // ドラッグに対応させるためにUIDragInteractionを追加
         dragableImageView1.addInteraction(UIDragInteraction(delegate: self))
         dragableImageView2.addInteraction(UIDragInteraction(delegate: self))
-        // ドラッグに対応させるためにUIDropInteractionsを追加
+        // ドロップに対応させるためにUIDropInteractionsを追加
         dropImageView.addInteraction(UIDropInteraction(delegate: self))
     }
 
@@ -33,9 +33,7 @@ extension NSItemProviderViewController: UIDragInteractionDelegate {
         }
 
         let itemProvider = NSItemProvider(object: image)
-        let item = UIDragItem(itemProvider: itemProvider)
-        item.localObject = image
-        return [item]
+        return [UIDragItem(itemProvider: itemProvider)]
     }
 }
 
