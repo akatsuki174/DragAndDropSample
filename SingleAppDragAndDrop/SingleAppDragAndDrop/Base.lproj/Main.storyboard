@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14087.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="br5-kA-jSK">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad12_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,25 +14,25 @@
             <objects>
                 <viewController id="OBI-4k-HJt" customClass="NSItemProviderViewController" customModule="SingleAppDragAndDrop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FDB-eF-jVr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image.png" translatesAutoresizingMaskIntoConstraints="NO" id="fln-to-jrh">
-                                <rect key="frame" x="70" y="101" width="100" height="100"/>
+                                <rect key="frame" x="70" y="101" width="480" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="INk-O7-Usq"/>
-                                    <constraint firstAttribute="width" constant="100" id="jRz-ga-51V"/>
+                                    <constraint firstAttribute="height" constant="300" id="INk-O7-Usq"/>
+                                    <constraint firstAttribute="width" constant="480" id="jRz-ga-51V"/>
                                 </constraints>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image.png" translatesAutoresizingMaskIntoConstraints="NO" id="g1T-3a-cKn">
-                                <rect key="frame" x="205" y="101" width="100" height="100"/>
+                                <rect key="frame" x="854" y="101" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="MXp-Qs-oYH"/>
                                     <constraint firstAttribute="width" constant="100" id="zkF-a6-gJ0"/>
                                 </constraints>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G7E-TG-P2j">
-                                <rect key="frame" x="137" y="418" width="100" height="100"/>
+                                <rect key="frame" x="462" y="1117" width="100" height="100"/>
                                 <color key="backgroundColor" red="1" green="0.9948742652" blue="0.79600128309999996" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="AUd-vw-Dec"/>
@@ -40,19 +40,19 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ドラッグできる" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6W-0y-yLw">
-                                <rect key="frame" x="126.5" y="50" width="122" height="21"/>
+                                <rect key="frame" x="451" y="50" width="122" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ドラッグできない" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e73-30-iW5">
-                                <rect key="frame" x="118" y="231" width="139" height="21"/>
+                                <rect key="frame" x="442.5" y="431" width="139" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image.png" translatesAutoresizingMaskIntoConstraints="NO" id="c71-me-uRW">
-                                <rect key="frame" x="137" y="282" width="100" height="100"/>
+                                <rect key="frame" x="462" y="482" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Snl-Uz-XKD"/>
                                     <constraint firstAttribute="width" constant="100" id="YKk-xA-RUW"/>
@@ -92,11 +92,11 @@
             <objects>
                 <viewController id="2VR-M5-gdk" customClass="PanGestureViewController" customModule="SingleAppDragAndDrop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CXe-au-D18">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mpb-RS-wXQ">
-                                <rect key="frame" x="67" y="40" width="240" height="150"/>
+                                <rect key="frame" x="392" y="40" width="240" height="150"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="4Wq-1A-UGn"/>

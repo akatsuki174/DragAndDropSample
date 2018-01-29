@@ -69,6 +69,12 @@ extension NSItemProviderViewController: UIDragInteractionDelegate {
         let target = UIDragPreviewTarget(container: imageView, center: center)
         return defaultPreview.retargetedPreview(with: target)
     }
+
+    // デフォルトだとプレビューは小さいサイズで表示される（ドロップしたい領域が隠れないように）
+    // UITableViewCellの並べ替えなど、フルサイズの方が自然な場合はこのメソッドでtrueを返す
+    func dragInteraction(_ interaction: UIDragInteraction, prefersFullSizePreviewsFor session: UIDragSession) -> Bool {
+        return true
+    }
 }
 
 extension NSItemProviderViewController: UIDropInteractionDelegate {
