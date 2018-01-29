@@ -1,5 +1,6 @@
 import UIKit
 import AVFoundation
+import MobileCoreServices
 
 class NSItemProviderViewController: UIViewController {
 
@@ -34,7 +35,32 @@ extension NSItemProviderViewController: UIDragInteractionDelegate {
         }
 
         let itemProvider = NSItemProvider(object: image)
-        return [UIDragItem(itemProvider: itemProvider)]
+        let dragItem = UIDragItem(itemProvider: itemProvider)
+        dragItem.localObject = image
+        return [dragItem]
+    }
+
+    // 複数のドラッグに対応
+    func dragInteraction(_ interaction: UIDragInteraction, itemsForAddingTo session: UIDragSession, withTouchAt point: CGPoint) -> [UIDragItem] {
+        guard let imageView = interaction.view as? UIImageView,
+            let image = imageView.image else {
+                return []
+        }
+        for item in session.items {
+            // 異なる種類のアイテムが含まれていたら追加しない
+            guard item.itemProvider.hasItemConformingToTypeIdentifier(kUTTypeImage as String) else {
+                return []
+            }
+            // すでに含まれている場合は追加しない
+            // ドラッグ開始時にlocalObjectプロパティにオブジェクトを登録しておけば同一かどうか判定できる
+            guard (item.localObject as? UIImage) != image else {
+                return []
+            }
+        }
+        let itemProvider = NSItemProvider(object: image)
+        let dragItem = UIDragItem(itemProvider: itemProvider)
+        dragItem.localObject = image
+        return [dragItem]
     }
 
     // リフト中のプレビューをカスタマイズする
