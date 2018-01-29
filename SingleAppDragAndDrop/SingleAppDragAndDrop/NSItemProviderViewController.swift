@@ -62,7 +62,7 @@ extension NSItemProviderViewController: UIDragInteractionDelegate {
     // プレビュー時のアニメーションはiOSによって管理されている
     func dragInteraction(_ interaction: UIDragInteraction, previewForCancelling item: UIDragItem, withDefault defaultPreview: UITargetedDragPreview) -> UITargetedDragPreview? {
         guard let imageView = interaction.view as? UIImageView else {
-                return nil
+            return nil
         }
 
         let center = imageView.convert(imageView.center, from: imageView.superview)
@@ -74,6 +74,24 @@ extension NSItemProviderViewController: UIDragInteractionDelegate {
     // UITableViewCellの並べ替えなど、フルサイズの方が自然な場合はこのメソッドでtrueを返す
     func dragInteraction(_ interaction: UIDragInteraction, prefersFullSizePreviewsFor session: UIDragSession) -> Bool {
         return true
+    }
+
+    // ドラッグのアニメーションに合わせて他の要素もアニメーションさせる
+    func dragInteraction(_ interaction: UIDragInteraction, willAnimateLiftWith animator: UIDragAnimating, session: UIDragSession) {
+        guard let imageView = interaction.view as? UIImageView else { return }
+        // リフトの開始に合わせたアニメーションを追加
+        animator.addAnimations {
+            imageView.alpha = 0.3
+        }
+        // リフトが終了するのに合わせたアニメーションを追加
+        animator.addCompletion { position in
+            switch position {
+            case .start, .end:
+                imageView.alpha = 1
+            case .current:
+                break
+            }
+        }
     }
 }
 
