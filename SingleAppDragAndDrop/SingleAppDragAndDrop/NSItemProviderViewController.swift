@@ -87,10 +87,18 @@ extension NSItemProviderViewController: UIDragInteractionDelegate {
         animator.addCompletion { position in
             switch position {
             case .start, .end:
-                imageView.alpha = 1
+                imageView.alpha = 1.0
             case .current:
                 break
             }
+        }
+    }
+
+    // ドラッグがキャンセルされた時のアニメーションを設定
+    func dragInteraction(_ interaction: UIDragInteraction, item: UIDragItem, willAnimateCancelWith animator: UIDragAnimating) {
+        guard let imageView = interaction.view as? UIImageView else { return }
+        animator.addAnimations {
+            imageView.alpha = 1.0
         }
     }
 }
