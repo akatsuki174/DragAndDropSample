@@ -7,6 +7,7 @@ class NSItemProviderViewController: UIViewController {
     @IBOutlet weak var dragableImageView1: UIImageView!
     @IBOutlet weak var dragableImageView2: UIImageView!
 
+    @IBOutlet weak var dropForbiddenImageView: UIImageView!
     @IBOutlet weak var dropImageView: UIImageView!
 
     override func viewDidLoad() {
@@ -17,6 +18,7 @@ class NSItemProviderViewController: UIViewController {
         dragableImageView2.addInteraction(UIDragInteraction(delegate: self))
         // ドロップに対応させるためにUIDropInteractionsを追加
         dropImageView.addInteraction(UIDropInteraction(delegate: self))
+        dropForbiddenImageView.addInteraction(UIDropInteraction(delegate: self))
     }
 
     override func didReceiveMemoryWarning() {
@@ -146,10 +148,12 @@ extension NSItemProviderViewController: UIDropInteractionDelegate {
     // ドラッグがviewの領域に入っている時に呼び出される
     func dropInteraction(_ interaction: UIDropInteraction, sessionDidUpdate session: UIDropSession) -> UIDropProposal {
         let location = session.location(in: self.view)
-        let dropOperation: UIDropOperation?
+        var dropOperation: UIDropOperation?
         if session.canLoadObjects(ofClass: UIImage.self) {
             if dropImageView.frame.contains(location) {
                 dropOperation = .copy
+            } else if dropForbiddenImageView.frame.contains(location) {
+                dropOperation = .forbidden
             } else {
                 dropOperation = .cancel
             }

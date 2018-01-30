@@ -58,6 +58,14 @@
                                     <constraint firstAttribute="width" constant="100" id="YKk-xA-RUW"/>
                                 </constraints>
                             </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zlb-te-w8H">
+                                <rect key="frame" x="462" y="632" width="100" height="100"/>
+                                <color key="backgroundColor" red="1" green="0.89217733893761086" blue="0.90489966102401109" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="2YL-wc-FCL"/>
+                                    <constraint firstAttribute="height" constant="100" id="rGj-na-gwf"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -69,7 +77,9 @@
                             <constraint firstItem="c71-me-uRW" firstAttribute="centerX" secondItem="1Nx-Vp-YUt" secondAttribute="centerX" id="UNe-8P-mHf"/>
                             <constraint firstItem="c71-me-uRW" firstAttribute="top" secondItem="e73-30-iW5" secondAttribute="bottom" constant="30" id="Uyq-6I-Mu7"/>
                             <constraint firstItem="fln-to-jrh" firstAttribute="top" secondItem="b6W-0y-yLw" secondAttribute="bottom" constant="30" id="XB7-QY-NWR"/>
+                            <constraint firstItem="Zlb-te-w8H" firstAttribute="top" secondItem="c71-me-uRW" secondAttribute="bottom" constant="50" id="XJ3-gI-Q01"/>
                             <constraint firstItem="G7E-TG-P2j" firstAttribute="centerX" secondItem="1Nx-Vp-YUt" secondAttribute="centerX" id="ZzP-73-bai"/>
+                            <constraint firstItem="Zlb-te-w8H" firstAttribute="centerX" secondItem="1Nx-Vp-YUt" secondAttribute="centerX" id="azA-uC-OCZ"/>
                             <constraint firstItem="b6W-0y-yLw" firstAttribute="top" secondItem="1Nx-Vp-YUt" secondAttribute="top" constant="30" id="muI-2i-hGk"/>
                             <constraint firstItem="g1T-3a-cKn" firstAttribute="top" secondItem="fln-to-jrh" secondAttribute="top" id="u0x-HC-HE8"/>
                             <constraint firstItem="1Nx-Vp-YUt" firstAttribute="bottom" secondItem="G7E-TG-P2j" secondAttribute="bottom" constant="100" id="zIW-aZ-GuF"/>
@@ -80,6 +90,7 @@
                     <connections>
                         <outlet property="dragableImageView1" destination="fln-to-jrh" id="gDX-If-dHo"/>
                         <outlet property="dragableImageView2" destination="g1T-3a-cKn" id="qre-PN-GK0"/>
+                        <outlet property="dropForbiddenImageView" destination="Zlb-te-w8H" id="Ffi-B9-Gk8"/>
                         <outlet property="dropImageView" destination="G7E-TG-P2j" id="LXI-DM-P3J"/>
                     </connections>
                 </viewController>
