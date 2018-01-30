@@ -127,6 +127,12 @@ extension NSItemProviderViewController: UIDragInteractionDelegate {
             imageView.alpha = 1.0
         }
     }
+
+    // 同一アプリ内でコピーではなく移動をサポートする場合はtrueを返す
+    // その際、ドロップ先ではUIDropProposalに.moveを設定する
+    func dragInteraction(_ interaction: UIDragInteraction, sessionAllowsMoveOperation session: UIDragSession) -> Bool {
+        return true
+    }
 }
 
 extension NSItemProviderViewController: UIDropInteractionDelegate {
