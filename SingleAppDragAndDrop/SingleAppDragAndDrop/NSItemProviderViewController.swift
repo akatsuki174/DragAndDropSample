@@ -179,11 +179,31 @@ extension NSItemProviderViewController: UIDropInteractionDelegate {
     func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
         guard session.canLoadObjects(ofClass: UIImage.self) else { return }
         // ドラッグされていたデータを取得
-        session.loadObjects(ofClass: UIImage.self) { (items) in
-            if let images = items as? [UIImage] {
-                self.dropImageView.image = images.last
-            }
-        }
+        // このクロージャはメインスレッドで実行される
+//        session.loadObjects(ofClass: UIImage.self) { (items) in
+//            if let images = items as? [UIImage] {
+//                self.dropImageView.image = images.last
+//            }
+//        }
+
+        let placeholder = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+        placeholder.backgroundColor = UIColor.lightGray
+        let indicator = UIProgressView(progressViewStyle: .default)
+        indicator.center = placeholder.center
+        placeholder.addSubview(indicator)
+        placeholder.center = self.view.center
+        view.addSubview(placeholder)
+
+        let progress = session.loadObjects(ofClass: UIImage.self, completion: { [weak self] images in
+            // 表示が見たいがためにわざと2秒遅らせている
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2), execute: {
+                placeholder.removeFromSuperview()
+                if let images = images as? [UIImage] {
+                    self?.dropImageView.image = images.last
+                }
+            })
+        })
+        indicator.observedProgress = progress
     }
 
     // ドラッグ時と同じようにドロップ時のプレビューをカスタマイズできる
@@ -199,4 +219,27 @@ extension NSItemProviderViewController: UIDropInteractionDelegate {
         let target = UIDragPreviewTarget(container: imageView, center: center)
         return defaultPreview.retargetedPreview(with: target)
     }
+
+    // ドロップに合わせてアニメーションをカスタマイズできる
+    func dropInteraction(_ interaction: UIDropInteraction, item: UIDragItem, willAnimateDropWith animator: UIDragAnimating) {
+        guard let imageView = interaction.view as? UIImageView else { return }
+        // TODO: センタリングとかやった方がいいので修正する
+
+        // ドロップの開始に合わせたアニメーションを追加
+        let size = imageView.frame.size
+        let scale: CGFloat = 1.5
+        animator.addAnimations {
+            imageView.frame.size = CGSize(width: size.width * scale, height: size.height * scale)
+        }
+        // ドロップが終了するのに合わせたアニメーションを追加
+        animator.addCompletion { position in
+            switch position {
+            case .start, .end:
+                imageView.frame.size = size
+            case .current:
+                break
+            }
+        }
+    }
+
 }
