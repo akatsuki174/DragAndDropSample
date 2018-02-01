@@ -140,7 +140,15 @@ extension NSItemProviderViewController: UIDragInteractionDelegate {
 extension NSItemProviderViewController: UIDropInteractionDelegate {
 
     // 何のオブジェクトを許容するか指定
+    // trueを返す = ドロップできる、というわけではなくあくまでも「許容するか否か」
+    // falseを返せばsessionDidUpdateは呼ばれなくなる
     func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
+        // 要素数も取れたりする
+        // return session.items.count == 1
+
+        // PNGだけ許容、ということもできる
+        // return session.hasItemsConforming(toTypeIdentifiers: [kUTTypePNG as String])
+
         return session.canLoadObjects(ofClass: UIImage.self)
     }
 
