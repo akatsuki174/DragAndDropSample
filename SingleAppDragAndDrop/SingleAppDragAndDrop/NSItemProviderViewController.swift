@@ -185,4 +185,18 @@ extension NSItemProviderViewController: UIDropInteractionDelegate {
             }
         }
     }
+
+    // ドラッグ時と同じようにドロップ時のプレビューをカスタマイズできる
+    // 一度にドロップされる数が多いとカスタマイズが適用されずデフォルトのアニメーションになる
+    func dropInteraction(_ interaction: UIDropInteraction, previewForDropping item: UIDragItem, withDefault defaultPreview: UITargetedDragPreview) -> UITargetedDragPreview? {
+        guard let imageView = interaction.view as? UIImageView else {
+            // デフォルトのアニメーションになる
+            return nil
+        }
+
+        // TODO: 算出しなおした方がいい
+        let center = imageView.convert(imageView.center, from: imageView.superview)
+        let target = UIDragPreviewTarget(container: imageView, center: center)
+        return defaultPreview.retargetedPreview(with: target)
+    }
 }
