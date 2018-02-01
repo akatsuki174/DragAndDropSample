@@ -160,6 +160,8 @@ extension NSItemProviderViewController: UIDropInteractionDelegate {
         } else {
             dropOperation = .cancel
         }
+        // 他に.moveもある。allowsMoveOperationプロパティがtrueでなかった場合は
+        // .cancelと同じように扱われる
 
         return UIDropProposal(operation: dropOperation!)
     }
